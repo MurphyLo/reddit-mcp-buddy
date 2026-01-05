@@ -11,6 +11,25 @@ main                 # 与上游保持同步，不直接修改
 └── local-custom     # 个人定制分支，合并所需功能
 ```
 
+### 分支关系时间线
+
+```
+时间线 →
+
+main:           A ─── B ─── C ─────── D (上游更新)
+                │           │         │
+feat/feature-1: └── E ─ F   │         │
+                        │   │         │
+feat/feature-2:         │   └── G ─ H │
+                        │           │ │
+local-custom:   ────────M1──────────M2─M3──→
+                     (merge F)  (merge H) (merge D)
+```
+
+- `main` 保持与上游同步
+- 功能分支从 `main` 分叉，独立开发
+- `local-custom` 通过合并收集所需功能
+
 ## 开发流程
 
 ### 1. 创建功能分支
